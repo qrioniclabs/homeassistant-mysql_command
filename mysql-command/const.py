@@ -1,0 +1,1 @@
+CONF_DB = "database"
