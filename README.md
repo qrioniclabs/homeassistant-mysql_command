@@ -11,7 +11,7 @@ In configuration.yaml:
 notify:
   - platform: mysql_command
     host: 192.168.1.20
-    db: my_db
-    username: root
+    db: your_db
+    username: your_user
     password: your_password
 ```
