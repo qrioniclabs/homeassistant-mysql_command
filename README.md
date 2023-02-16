@@ -4,6 +4,9 @@ Home Assistant custom component that creates a Notify service to send a command 
 ### Features
 - Ability to send commands to a MySQL server using the Notify platform / service
 
+### Inspired by:
+https://community.home-assistant.io/t/how-do-i-call-an-insert-sql-command-to-mariadb-addon/
+
 ### Configuration
 ### YAML
 In configuration.yaml:
