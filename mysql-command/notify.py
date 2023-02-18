@@ -51,6 +51,7 @@ def get_service(
 class MySQLCommandNotificationService(BaseNotificationService):
     """Implement the notification service for the mysql_command service."""
 
+    
     def __init__(self, host, db, username, password):
         """Initialize the service."""
         self.host = host
@@ -58,6 +59,7 @@ class MySQLCommandNotificationService(BaseNotificationService):
         self.user = username
         self.password = password
 
+   
     def send_message(self, message="", **kwargs):
         """Send a message as command to a MySQL server."""
         cnx = mysql.connector.connect(
