@@ -32,14 +32,9 @@ This integration can be installed using HACS.
 To do it search for `Xiaomi Cloud Map Extractor` in *Integrations* section.
 
 ### Manual
-
-To install this integration manually you have to download [*xiaomi_cloud_map_extractor.zip*](https://github.com/PiotrMachowski/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/releases/latest/download/xiaomi_cloud_map_extractor.zip) and extract its contents to `config/custom_components/xiaomi_cloud_map_extractor` directory:
-```bash
-mkdir -p custom_components/xiaomi_cloud_map_extractor
-cd custom_components/xiaomi_cloud_map_extractor
-wget https://github.com/PiotrMachowski/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor/releases/latest/download/xiaomi_cloud_map_extractor.zip
-unzip xiaomi_cloud_map_extractor.zip
-rm xiaomi_cloud_map_extractor.zip
+- Copy directory `custom_components/mysql_command` to your `<config dir>/custom_components` directory.
+- Configure with config below.
+- Restart Home-Assistant.
 
 ### Configuration
 ### YAML
