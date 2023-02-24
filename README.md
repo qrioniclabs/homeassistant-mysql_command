@@ -2,6 +2,7 @@
 [![GitHub Latest Release][releases_shield]][latest_release]
 [![GitHub All Releases][downloads_total_shield]][releases]
 [![Community Forum][community_forum_shield]][community_forum]
+[![PayPal.Me][paypal_me_shield]][paypal_me]
 [![Buy me a coffee][buy_me_a_coffee_shield]][buy_me_a_coffee]
 
 
@@ -18,8 +19,7 @@
 [community_forum_shield]: https://img.shields.io/static/v1.svg?label=%20&message=Forum&style=popout&color=41bdf5&logo=HomeAssistant&logoColor=white
 [community_forum]: https://community.home-assistant.io/t/xiaomi-cloud-vacuum-map-extractor/231292
 
-[buy_me_a_coffee_shield]: https://img.shields.io/static/v1.svg?label=%20&message=Buy%20me%20a%20coffee&color=6f4e37&logo=buy%20me%20a%20coffee&logoColor=white
-[buy_me_a_coffee]: https://www.buymeacoffee.com/PiotrMachowski
+
 
 [paypal_me_shield]: https://img.shields.io/static/v1.svg?label=%20&message=PayPal.Me&logo=paypal
 [paypal_me]: https://paypal.me/PiMachowski
