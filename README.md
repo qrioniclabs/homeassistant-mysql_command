@@ -13,7 +13,7 @@
 [downloads_total_shield]: https://img.shields.io/github/downloads/qrioniclabs/homeassistant-mysql_command/total?style=for-the-badge
 
 [community_forum_shield]: https://img.shields.io/static/v1.svg?label=%20&message=Forum&style=for-the-badge&color=41bdf5&logo=HomeAssistant&logoColor=white
-[community_forum]: https://community.home-assistant.io/t/xiaomi-cloud-vacuum-map-extractor/231292
+[community_forum]: https://community.home-assistant.io/t/mysql-command/539839
 
 # MySQL Command
 A Home Assistant custom component that creates a `notify` service to send a command to a MySQL server.
