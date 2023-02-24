@@ -21,9 +21,6 @@ Home Assistant custom component that creates a Notify service to send a command 
 ## Features
 - Send commands to a MySQL server using the Notify platform / service
 
-## Inspired by:
-
-
 ## Installation
 
 ### Using [HACS](https://hacs.xyz/) (recommended)
