@@ -24,7 +24,7 @@ Home Assistant custom component that creates a `notify` service to send a comman
 ## Installation
 
 ### Using [HACS](https://hacs.xyz/)
-This component can be installed using HACS. Please follow directions [here](https://hacs.xyz/docs/faq/custom_repositories/) and use [https://github.com/qrioniclabs/home-assistant-mysql-command](https://github.com/qrioniclabs/homeassistant-mysql_command) as the repository URL.
+This component can be installed using HACS. Please follow directions [here](https://hacs.xyz/docs/faq/custom_repositories/) and use [https://github.com/qrioniclabs/homeassistant-mysql_command](https://github.com/qrioniclabs/homeassistant-mysql_command) as the repository URL.
 
 ### Manual
 - Copy directory `custom_components/mysql_command` to your `<config dir>/custom_components` directory
