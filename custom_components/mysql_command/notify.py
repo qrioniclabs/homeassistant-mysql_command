@@ -1,6 +1,12 @@
 """Support for mysql_command notification."""
 from __future__ import annotations
-from .const import CONF_DB
+
+from .const import (
+    CONF_MYSQL_HOST,
+    CONF_MYSQL_USERNAME,
+    CONF_MYSQL_PASSWORD,
+    CONF_MYSQL_DB,
+)
 
 import voluptuous as vol
 
@@ -11,25 +17,18 @@ from homeassistant.components.notify import (
     BaseNotificationService,
 )
 
-from homeassistant.const import (
-    CONF_HOST,
-    CONF_PASSWORD,
-    CONF_USERNAME,
-)
 from homeassistant.core import HomeAssistant
 import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers.typing import ConfigType, DiscoveryInfoType
 
-# REQUIREMENTS = ['mysql-connector==2.1.6']
 import mysql.connector
-
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     {
-        vol.Required(CONF_HOST): cv.string,
-        vol.Required(CONF_DB): cv.string,
-        vol.Required(CONF_USERNAME): cv.string,
-        vol.Required(CONF_PASSWORD): cv.string,
+        vol.Required(CONF_MYSQL_HOST): cv.string,
+        vol.Required(CONF_MYSQL_USERNAME): cv.string,
+        vol.Required(CONF_MYSQL_PASSWORD): cv.string,
+        vol.Required(CONF_MYSQL_DB): cv.string,
     }
 )
 
@@ -40,37 +39,36 @@ def get_service(
     discovery_info: DiscoveryInfoType | None = None,
 ) -> MySQLCommandNotificationService:
     """Get the mysql_command service."""
-    host = config[CONF_HOST]
-    db = config[CONF_DB]
-    username = config[CONF_USERNAME]
-    password = config[CONF_PASSWORD]
+    host = config[CONF_MYSQL_HOST]
+    username = config[CONF_MYSQL_USERNAME]
+    password = config[CONF_MYSQL_PASSWORD]
+    db = config[CONF_MYSQL_DB]
 
-    return MySQLCommandNotificationService(host, db, username, password)
+    return MySQLCommandNotificationService(host, username, password, db)
 
 
 class MySQLCommandNotificationService(BaseNotificationService):
     """Implement the notification service for the mysql_command service."""
 
     
-    def __init__(self, host, db, username, password):
+    def __init__(self, host, username, password, db):
         """Initialize the service."""
         self.host = host
-        self.db = db
-        self.user = username
+        self.username = username
         self.password = password
+        self.db = db
 
    
     def send_message(self, message="", **kwargs):
         """Send a message as command to a MySQL server."""
         cnx = mysql.connector.connect(
             host=self.host,
-            db=self.db,
-            user=self.user,
+            username=self.username,
             password=self.password,
+            db=self.db,
         )
         cursor = cnx.cursor(buffered=True)  # (buffered=True)
         cursor.execute(message)
-        # something = cursor.lastrowid
 
         cnx.commit()
         cursor.close()
