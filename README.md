@@ -16,7 +16,7 @@
 [community_forum]: https://community.home-assistant.io/t/xiaomi-cloud-vacuum-map-extractor/231292
 
 # MySQL Command
-Home Assistant custom component that creates a Notify service to send a command to a MySQL server.
+Home Assistant custom component that creates a `notify` service to send a command to a MySQL server.
 
 ## Features
 - Send commands to a MySQL server using the Notify platform / service
