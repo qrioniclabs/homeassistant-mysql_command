@@ -15,7 +15,7 @@
 [community_forum_shield]: https://img.shields.io/static/v1.svg?label=%20&message=Forum&style=for-the-badge&color=41bdf5&logo=HomeAssistant&logoColor=white
 [community_forum]: https://community.home-assistant.io/t/xiaomi-cloud-vacuum-map-extractor/231292
 
-# home-assistant-mysql-command
+# MySQL Command - Home Assistant custom component
 Home Assistant custom component that creates a Notify service to send a command to a MySQL server.
 
 ## Features
