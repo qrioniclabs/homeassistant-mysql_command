@@ -22,7 +22,7 @@ Home Assistant custom component that creates a Notify service to send a command 
 - Send commands to a MySQL server using the Notify platform / service
 
 ## Inspired by:
-https://community.home-assistant.io/t/how-do-i-call-an-insert-sql-command-to-mariadb-addon/
+
 
 ## Installation
 
@@ -91,13 +91,5 @@ camera:
 
 
 ## Special thanks
-
-This integration wouldn't exist without following projects:
- - [openHAB miIO add-on](https://github.com/openhab/openhab-addons/tree/main/bundles/org.openhab.binding.miio/src/main/java/org/openhab/binding/miio) by [@marcelrv](https://github.com/marcelrv)
- - [valeCLOUDo](https://github.com/Xento/valeCLOUDo) by [@Xento](https://github.com/Xento)
- - [Xiaomi Robot Vacuum Protocol](https://github.com/marcelrv/XiaomiRobotVacuumProtocol) by [@marcelrv](https://github.com/marcelrv)
- - [Valetudo](https://github.com/Hypfer/Valetudo) by [@Hypfer](https://github.com/Hypfer)
-
-
-<a href="https://www.buymeacoffee.com/PiotrMachowski" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
-<a href="https://paypal.me/PiMachowski" target="_blank"><img src="https://www.paypalobjects.com/webstatic
+- Inspired by https://community.home-assistant.io/t/how-do-i-call-an-insert-sql-command-to-mariadb-addon/
+- First steps taken with the help of [@mikey0000](https://github.com/mikey0000) via HA Discord
