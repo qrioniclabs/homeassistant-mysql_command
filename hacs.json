@@ -1,5 +1,4 @@
 {
-  "name": "MySQL command",
-  "render_readme": true,
-  "homeassistant": "2021.12.0"
+  "name": "MySQL Command",
+  "render_readme": true
 }
