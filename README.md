@@ -6,7 +6,7 @@
 [hacs_shield]: https://img.shields.io/badge/HACS-Custom-41BDF5.svg?style=for-the-badge
 [hacs]: https://github.com/hacs/integration
 
-[latest_release]: https://github.com/qrioniclabs/home-assistant-mysql_command/releases/latest
+[latest_release]: https://github.com/qrioniclabs/homeassistant-mysql_command/releases/latest
 [releases_shield]: https://img.shields.io/github/release/qrioniclabs/homeassistant-mysql_command.svg?style=for-the-badge
 
 [releases]: https://github.com/qrioniclabs/home-assistant-mysql-command/releases/
