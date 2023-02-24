@@ -57,7 +57,7 @@ Then, use the service like so:
 |---|---|---|---|---|
 | `platform` | string | true | `mysql_command` | Name of a platform |
 | `host` | string | true | `192.168.1.123` | IP address of MySQL server |
-| `username` | string | true | `example_db` | MySQL user with access to the database |
+| `username` | string | true | `example_user` | MySQL user with access to the database |
 | `password` | string | true | `aVerySecretPassword` | Password for the MySQL user |
 | `db` | string | true | `example_db` | The database that the commands are sent to |
 
