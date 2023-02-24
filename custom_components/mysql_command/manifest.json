@@ -3,5 +3,5 @@
     "name": "MySQL Command",
     "requirements": ["mysql-connector-python==8.0.32"], 
     "iot_class": "local_push",
-    "version": "0.1.1"
+    "version": "1.0.0"
 }
