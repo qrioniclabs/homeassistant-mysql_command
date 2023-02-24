@@ -57,9 +57,9 @@ Then, use the service like so:
 |---|---|---|---|---|
 | `platform` | string | true | `mysql_command` | Name of a platform |
 | `host` | string | true | `192.168.1.123` | IP address of MySQL server |
-| `db` | string | true | `my_db` | The database that the commands are sent to |
 | `username` | string | true | `db_user` | MySQL user with access to the database |
 | `password` | string | true | `aVerySecretPassword` | Password for the MySQL user |
+| `db` | string | true | `my_db` | The database that the commands are sent to |
 
 ## Special thanks
 - Inspired by https://community.home-assistant.io/t/how-do-i-call-an-insert-sql-command-to-mariadb-addon/
