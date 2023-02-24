@@ -5,12 +5,12 @@
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg?style=for-the-badge)](https://github.com/hacs/integration)
 
 [latest_release]: https://github.com/qrioniclabs/home-assistant-mysql-command/releases/latest
-[releases_shield]: https://img.shields.io/github/release/PiotrMachowski/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor.svg?style=popout?style=for-the-badge
+[releases_shield]: https://img.shields.io/github/release/PiotrMachowski/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor.svg?style=for-the-badge
 
 [releases]: https://github.com/qrioniclabs/home-assistant-mysql-command/releases/
 [downloads_total_shield]: https://img.shields.io/github/downloads/qrioniclabs/home-assistant-mysql-command/total?style=for-the-badge
 
-[community_forum_shield]: https://img.shields.io/static/v1.svg?label=%20&message=Forum&style=popout&color=41bdf5&logo=HomeAssistant&logoColor=white
+[community_forum_shield]: https://img.shields.io/static/v1.svg?label=%20&message=Forum&style=for-the-badge&color=41bdf5&logo=HomeAssistant&logoColor=white
 [community_forum]: https://community.home-assistant.io/t/xiaomi-cloud-vacuum-map-extractor/231292
 
 # home-assistant-mysql-command
