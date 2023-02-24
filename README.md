@@ -6,11 +6,11 @@
 [hacs_shield]: https://img.shields.io/badge/HACS-Custom-41BDF5.svg?style=for-the-badge
 [hacs]: https://github.com/hacs/integration
 
-[latest_release]: https://github.com/qrioniclabs/home-assistant-mysql-command/releases/latest
-[releases_shield]: https://img.shields.io/github/release/PiotrMachowski/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor.svg?style=for-the-badge
+[latest_release]: https://github.com/qrioniclabs/home-assistant-mysql_command/releases/latest
+[releases_shield]: https://img.shields.io/github/release/qrioniclabs/homeassistant-mysql_command.svg?style=for-the-badge
 
 [releases]: https://github.com/qrioniclabs/home-assistant-mysql-command/releases/
-[downloads_total_shield]: https://img.shields.io/github/downloads/qrioniclabs/home-assistant-mysql-command/total?style=for-the-badge
+[downloads_total_shield]: https://img.shields.io/github/downloads/qrioniclabs/homeassistant-mysql_command/total?style=for-the-badge
 
 [community_forum_shield]: https://img.shields.io/static/v1.svg?label=%20&message=Forum&style=for-the-badge&color=41bdf5&logo=HomeAssistant&logoColor=white
 [community_forum]: https://community.home-assistant.io/t/xiaomi-cloud-vacuum-map-extractor/231292
@@ -24,7 +24,7 @@ Home Assistant custom component that creates a Notify service to send a command 
 ## Installation
 
 ### Using [HACS](https://hacs.xyz/) (recommended)
-This component can be installed using HACS. Please follow directions [here](https://hacs.xyz/docs/faq/custom_repositories/) and use [https://github.com/qrioniclabs/home-assistant-mysql-command](https://github.com/qrioniclabs/home-assistant-mysql-command) as the repository URL.
+This component can be installed using HACS. Please follow directions [here](https://hacs.xyz/docs/faq/custom_repositories/) and use [https://github.com/qrioniclabs/home-assistant-mysql-command](https://github.com/qrioniclabs/homeassistant-mysql_command) as the repository URL.
 
 ### Manual
 - Copy directory `custom_components/mysql_command` to your `<config dir>/custom_components` directory.
@@ -60,7 +60,6 @@ After modification of camera's configuration you can reload its settings in [Con
 ### Examples
 
 #### Basic
-
 ```yaml
 camera:
   - platform: xiaomi_cloud_map_extractor
@@ -71,21 +70,12 @@ camera:
 ```
 
 ### Available configuration parameters
-
 | Key | Type | Required | Value | Description |
 |---|---|---|---|---|
-| `platform` | string | true | `xiaomi_cloud_map_extractor` | Name of a platform |
-| `host` | string | true | `192.168.0.123` | IP address of a vacuum |
-| `token` | string | true | `ghjhca3ykg8o2zyyj7xb5adamhgsypel` | Token of a vacuum |
-| `username` | string | true | `xiaomi.account@gmail.com` | Username (email or user ID) used to connect to Xiaomi cloud (the account used in the Xiaomi Home app) |
-| `password` | string | true | `aVerySecretPassword` | Password used to connect to Xiaomi cloud (the account used in the Xiaomi Home app) |
-| `name` | string | false |   | Desired name of camera entity |
-| `country` | string | false | One of: `cn`, `de`, `us`, `ru`, `tw`, `sg`, `in`, `i2` | Server used in Xiaomi cloud. Leave empty if you are not sure. |
-| `colors` | map | false |  | Colors configuration ([see below](#colors-configuration)) |
-| `room_colors` | map | false |  | Room colors configuration ([see below](#room-colors-configuration)) |
-| `draw` | list | false |  | List of elements to draw on a map ([see below](#draw-configuration)) |
-
-
+| `platform` | string | true | `mysql_command` | Name of a platform |
+| `host` | string | true | `192.168.1.123` | IP address of MySQL server |
+| `username` | string | true | `db_user` | MySQL user with access to the database |
+| `password` | string | true | `aVerySecretPassword` | Password for the MySQL user |
 
 ## Special thanks
 - Inspired by https://community.home-assistant.io/t/how-do-i-call-an-insert-sql-command-to-mariadb-addon/
