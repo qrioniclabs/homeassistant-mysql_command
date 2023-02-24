@@ -27,9 +27,7 @@ https://community.home-assistant.io/t/how-do-i-call-an-insert-sql-command-to-mar
 ## Installation
 
 ### Using [HACS](https://hacs.xyz/) (recommended)
-
-This integration can be installed using HACS.
-To do it search for `Xiaomi Cloud Map Extractor` in *Integrations* section.
+This component can be installed using HACS. Please follow directions [here](https://hacs.xyz/docs/faq/custom_repositories/) and use [https://github.com/qrioniclabs/home-assistant-mysql-command](https://github.com/qrioniclabs/home-assistant-mysql-command) as the repository URL.
 
 ### Manual
 - Copy directory `custom_components/mysql_command` to your `<config dir>/custom_components` directory.
