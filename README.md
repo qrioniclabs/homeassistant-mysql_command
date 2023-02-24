@@ -36,7 +36,8 @@ This component can be installed using HACS. Please follow directions [here](http
 In configuration.yaml:
 ```yaml
 notify:
-  - platform: mysql_command
+  - name: mysql_command_example_db
+    platform: mysql_command
     host: 192.168.1.20
     username: your_user
     password: your_password
@@ -49,32 +50,6 @@ Then, use the service like so:
       data_template:
         message: >
           INSERT INTO `table` (column1, column2, column3) VALUES ('value1', 'value2', 'value3');
-```
-
-## Configuration
-
-After installation of the custom component, it needs to be configured in `configuration.yaml` file.
-To do so, add a camera entry to your configuration with at least a [basic](#basic) or [recommended](#recommended) configuration.
-Vacuum token can be extracted by following [this guide](https://www.home-assistant.io/integrations/xiaomi_miio/#retrieving-the-access-token) (ignore "not recommended" message, as it applies only to built-in Xiaomi Miio integration).
-You also need to enter your Xiaomi Cloud username and password.
-These are the credentials used for the Xiaomi Home app (_not ones from Roborock app_).
-
-After installation and a reboot of your Home Assistant instance, you should get a camera entity which shows the vacuum map.
-This might take a few minutes after a first restart.
-If you have a problem with configuration validation you have to remove camera from `configuration.yaml`, restart Home Assistant, add camera config and restart HA again.
-
-After modification of camera's configuration you can reload its settings in [Configuration](https://my.home-assistant.io/redirect/config/) or using `xiaomi_cloud_map_extractor.reload` service.
-
-### Examples
-
-#### Settu
-```yaml
-camera:
-  - platform: xiaomi_cloud_map_extractor
-    host: !secret xiaomi_vacuum_host
-    token: !secret xiaomi_vacuum_token
-    username: !secret xiaomi_cloud_username
-    password: !secret xiaomi_cloud_password
 ```
 
 ### Available configuration parameters
