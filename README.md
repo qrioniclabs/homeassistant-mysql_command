@@ -31,16 +31,24 @@ This component can be installed using HACS. Please follow directions [here](http
 - Configure with config below.
 - Restart Home-Assistant.
 
-### Configuration
+## Configuration
 ### YAML
 In configuration.yaml:
 ```yaml
 notify:
   - platform: mysql_command
     host: 192.168.1.20
-    db: your_db
     username: your_user
     password: your_password
+    db: example_db
+```
+
+Then, use the service like so:
+```yaml
+- service: notify.mysql_command_example_db
+      data_template:
+        message: >
+          INSERT INTO `table` (column1, column2, column3) VALUES ('value1', 'value2', 'value3');
 ```
 
 ## Configuration
@@ -59,7 +67,7 @@ After modification of camera's configuration you can reload its settings in [Con
 
 ### Examples
 
-#### Basic
+#### Settu
 ```yaml
 camera:
   - platform: xiaomi_cloud_map_extractor
