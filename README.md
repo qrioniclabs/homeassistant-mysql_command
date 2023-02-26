@@ -40,10 +40,10 @@ In configuration.yaml:
 notify:
   - name: mysql_command_example_db
     platform: mysql_command
-    host: 192.168.1.20
-    username: example_db
-    password: aVerySecretPassword
-    db: example_db
+    host: YourHostnameOrIP
+    username: YourUser
+    password: YourPassword
+    db: YourDB
 ```
 
 Then, use the service like so:
@@ -58,7 +58,7 @@ Then, use the service like so:
 | Key | Type | Required | Value | Description |
 |---|---|---|---|---|
 | `platform` | string | true | `mysql_command` | Name of a platform |
-| `host` | string | true | `192.168.1.123` | IP address of MySQL server |
+| `host` | string | true | `192.168.1.123` | Hostname or IP address of MySQL server |
 | `username` | string | true | `example_user` | MySQL user with access to the database |
 | `password` | string | true | `aVerySecretPassword` | Password for the MySQL user |
 | `db` | string | true | `example_db` | The database that the command is sent to |
