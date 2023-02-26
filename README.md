@@ -18,7 +18,7 @@
 # MySQL Command
 A Home Assistant custom component that creates a `notify` service to send a command to a MySQL server.
 
-<sup>Forum Thread: https://community.home-assistant.io/t/mysql-command/539839</sup>
+<sup>Forum Topic: https://community.home-assistant.io/t/mysql-command/539839</sup>
 
 ## Features
 - Send commands to a MySQL server using the Notify platform / service
