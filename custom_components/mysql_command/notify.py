@@ -66,6 +66,7 @@ class MySQLCommandNotificationService(BaseNotificationService):
             username=self.username,
             password=self.password,
             db=self.db,
+            connection_timeout=10,
         )
         cursor = cnx.cursor(buffered=True)  # (buffered=True)
         cursor.execute(message)
