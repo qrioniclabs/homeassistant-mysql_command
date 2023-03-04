@@ -62,6 +62,7 @@ Then, use the service like so:
 | `username` | string | true | `example_user` | MySQL user with access to the database |
 | `password` | string | true | `aVerySecretPassword` | Password for the MySQL user |
 | `db` | string | true | `example_db` | The database that the command is sent to |
+| `timeout` | int | false | `30` | Timeout (in seconds) for the database connection. Default: 10 |
 
 ## Special thanks
 - Inspired by https://community.home-assistant.io/t/how-do-i-call-an-insert-sql-command-to-mariadb-addon/
