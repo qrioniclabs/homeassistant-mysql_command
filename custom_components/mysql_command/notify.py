@@ -6,6 +6,8 @@ from .const import (
     CONF_MYSQL_USERNAME,
     CONF_MYSQL_PASSWORD,
     CONF_MYSQL_DB,
+    CONF_MYSQL_TIMEOUT,
+    DEFAULT_MYSQL_TIMEOUT,
 )
 
 import voluptuous as vol
@@ -29,6 +31,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
         vol.Required(CONF_MYSQL_USERNAME): cv.string,
         vol.Required(CONF_MYSQL_PASSWORD): cv.string,
         vol.Required(CONF_MYSQL_DB): cv.string,
+        vol.Optional(CONF_MYSQL_TIMEOUT, default=DEFAULT_MYSQL_TIMEOUT): vol.Coerce(int),
     }
 )
 
@@ -43,20 +46,22 @@ def get_service(
     username = config[CONF_MYSQL_USERNAME]
     password = config[CONF_MYSQL_PASSWORD]
     db = config[CONF_MYSQL_DB]
+    timeout = config[CONF_MYSQL_TIMEOUT]
 
-    return MySQLCommandNotificationService(host, username, password, db)
+    return MySQLCommandNotificationService(host, username, password, db, timeout)
 
 
 class MySQLCommandNotificationService(BaseNotificationService):
     """Implement the notification service for the mysql_command service."""
 
     
-    def __init__(self, host, username, password, db):
+    def __init__(self, host, username, password, db, timeout):
         """Initialize the service."""
         self.host = host
         self.username = username
         self.password = password
         self.db = db
+        self.timeout = timeout
 
    
     def send_message(self, message="", **kwargs):
@@ -66,8 +71,9 @@ class MySQLCommandNotificationService(BaseNotificationService):
             username=self.username,
             password=self.password,
             db=self.db,
+            connection_timeout=self.timeout,
         )
-        cursor = cnx.cursor(buffered=True)  # (buffered=True)
+        cursor = cnx.cursor(buffered=True)  # (Why buffered=True? I don't have a clue...)
         cursor.execute(message)
 
         cnx.commit()
