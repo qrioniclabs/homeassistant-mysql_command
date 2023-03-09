@@ -1,6 +1,7 @@
 {
     "domain": "mysql_command",
     "name": "MySQL Command",
+    "codeowners": ["@qrioniclabs"],
     "documentation": "https://github.com/qrioniclabs/homeassistant-mysql_command",
     "issue_tracker": "https://github.com/qrioniclabs/homeassistant-mysql_command/issues",
     "requirements": ["mysql-connector-python==8.0.32"], 
