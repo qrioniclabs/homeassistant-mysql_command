@@ -54,6 +54,14 @@ Then, use the service like so:
           INSERT INTO `table` (column1, column2, column3) VALUES ('value1', 'value2', 'value3');
 ```
 
+Here is an example with a template timestamp:
+```yaml
+- service: notify.mysql_command_example_db
+      data_template:
+        message: >
+          INSERT INTO `table` (datetime, column1, column2) VALUES ('{{ now().timestamp() | timestamp_custom('%Y-%m-%d %H:%M:%S') }}', 'value1', 'value2');
+```
+
 ### Available configuration parameters
 | Key | Type | Required | Value | Description |
 |---|---|---|---|---|
