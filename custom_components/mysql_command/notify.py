@@ -33,7 +33,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
         vol.Optional(CONF_MYSQL_PORT, default=DEFAULT_MYSQL_PORT): vol.Coerce(int),
         vol.Required(CONF_MYSQL_USERNAME): cv.string,
         vol.Required(CONF_MYSQL_PASSWORD): cv.string,
-        vol.Required(CONF_MYSQL_DB): cv.string,        
+        vol.Required(CONF_MYSQL_DB): cv.string,
         vol.Optional(CONF_MYSQL_TIMEOUT, default=DEFAULT_MYSQL_TIMEOUT): vol.Coerce(int),
     }
 )
