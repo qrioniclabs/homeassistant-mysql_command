@@ -6,7 +6,9 @@ from .const import (
     CONF_MYSQL_USERNAME,
     CONF_MYSQL_PASSWORD,
     CONF_MYSQL_DB,
+    CONF_MYSQL_PORT,
     CONF_MYSQL_TIMEOUT,
+    DEFAULT_MYSQL_PORT,
     DEFAULT_MYSQL_TIMEOUT,
 )
 
@@ -31,6 +33,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
         vol.Required(CONF_MYSQL_USERNAME): cv.string,
         vol.Required(CONF_MYSQL_PASSWORD): cv.string,
         vol.Required(CONF_MYSQL_DB): cv.string,
+        vol.Optional(CONF_MYSQL_PORT, default=DEFAULT_MYSQL_PORT): vol.Coerce(int),
         vol.Optional(CONF_MYSQL_TIMEOUT, default=DEFAULT_MYSQL_TIMEOUT): vol.Coerce(int),
     }
 )
@@ -46,21 +49,23 @@ def get_service(
     username = config[CONF_MYSQL_USERNAME]
     password = config[CONF_MYSQL_PASSWORD]
     db = config[CONF_MYSQL_DB]
+    port = config[CONF_MYSQL_PORT]
     timeout = config[CONF_MYSQL_TIMEOUT]
 
-    return MySQLCommandNotificationService(host, username, password, db, timeout)
+    return MySQLCommandNotificationService(host, username, password, db, port, timeout)
 
 
 class MySQLCommandNotificationService(BaseNotificationService):
     """Implement the notification service for the mysql_command service."""
 
     
-    def __init__(self, host, username, password, db, timeout):
+    def __init__(self, host, username, password, db, port, timeout):
         """Initialize the service."""
         self.host = host
         self.username = username
         self.password = password
         self.db = db
+        self.port = port
         self.timeout = timeout
 
    
@@ -71,6 +76,7 @@ class MySQLCommandNotificationService(BaseNotificationService):
             username=self.username,
             password=self.password,
             db=self.db,
+            port=self.port,
             connection_timeout=self.timeout,
         )
         cursor = cnx.cursor(buffered=True)  # (Why buffered=True? I don't have a clue...)
