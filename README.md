@@ -70,6 +70,7 @@ Here is an example with a template timestamp:
 | `username` | string | true | `example_user` | MySQL user with access to the database |
 | `password` | string | true | `aVerySecretPassword` | Password for the MySQL user |
 | `db` | string | true | `example_db` | The database that the command is sent to |
+| `port` | int | false | `3307` | The TCP/IP port of the MySQL server. Default: 3306 |
 | `timeout` | int | false | `30` | Timeout (in seconds) for the database connection. Default: 10 |
 
 ## Special thanks
