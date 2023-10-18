@@ -2,21 +2,23 @@
 from __future__ import annotations
 
 from .const import (
+    CONF_MYSQL_BUFFERED,
     CONF_MYSQL_HOST,
     CONF_MYSQL_PORT,    
     CONF_MYSQL_USERNAME,
     CONF_MYSQL_PASSWORD,
     CONF_MYSQL_DB,
     CONF_MYSQL_TIMEOUT,
+    DEFAULT_MYSQL_BUFFERED,
     DEFAULT_MYSQL_PORT,
     DEFAULT_MYSQL_TIMEOUT,
 )
 
 import voluptuous as vol
+import logging
 
 from homeassistant.components.notify import (
-    ATTR_TITLE,
-    ATTR_TITLE_DEFAULT,
+    ATTR_TARGET,
     PLATFORM_SCHEMA,
     BaseNotificationService,
 )
@@ -27,6 +29,8 @@ from homeassistant.helpers.typing import ConfigType, DiscoveryInfoType
 
 import mysql.connector
 
+_LOGGER = logging.getLogger(__name__)
+
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     {
         vol.Required(CONF_MYSQL_HOST): cv.string,
@@ -35,6 +39,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
         vol.Required(CONF_MYSQL_PASSWORD): cv.string,
         vol.Required(CONF_MYSQL_DB): cv.string,
         vol.Optional(CONF_MYSQL_TIMEOUT, default=DEFAULT_MYSQL_TIMEOUT): vol.Coerce(int),
+        vol.Optional(CONF_MYSQL_BUFFERED, default=DEFAULT_MYSQL_BUFFERED): cv.boolean,
     }
 )
 
@@ -51,15 +56,16 @@ def get_service(
     password = config[CONF_MYSQL_PASSWORD]
     db = config[CONF_MYSQL_DB]
     timeout = config[CONF_MYSQL_TIMEOUT]
+    buffered = config[CONF_MYSQL_BUFFERED]
 
-    return MySQLCommandNotificationService(host, port, username, password, db, timeout)
+    return MySQLCommandNotificationService(host, port, username, password, db, timeout, buffered)
 
 
 class MySQLCommandNotificationService(BaseNotificationService):
     """Implement the notification service for the mysql_command service."""
 
     
-    def __init__(self, host, port, username, password, db, timeout):
+    def __init__(self, host, port, username, password, db, timeout, buffered):
         """Initialize the service."""
         self.host = host
         self.port = port
@@ -67,6 +73,7 @@ class MySQLCommandNotificationService(BaseNotificationService):
         self.password = password
         self.db = db
         self.timeout = timeout
+        self.buffered = buffered
 
    
     def send_message(self, message="", **kwargs):
@@ -79,9 +86,15 @@ class MySQLCommandNotificationService(BaseNotificationService):
             db=self.db,
             connection_timeout=self.timeout,
         )
-        cursor = cnx.cursor(buffered=True)  # (Why buffered=True? I don't have a clue...)
-        cursor.execute(message)
+        cursor = cnx.cursor(buffered=self.buffered)
+        if ATTR_TARGET in kwargs:
+            _LOGGER.debug("Executing query: '%s' with target '%s'", message, tuple(kwargs[ATTR_TARGET]))
+            cursor.execute(message, tuple(kwargs[ATTR_TARGET]))
+        else:
+            _LOGGER.debug("Executing query: '%s'", message)
+            cursor.execute(message)
 
         cnx.commit()
+        _LOGGER.debug("%d row(s) affected", cursor.rowcount)
         cursor.close()
         cnx.close()
